@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        #video {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-group .btn {
+            margin-right: 100px;
+            /* Add space between buttons */
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
+    <script defer src="./app.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <video src="https://www.w3schools.com/tags/movie.mp4" autoplay height="300" width="400" id="video">
+            </video>
+        </div>
+
+        <div class="text-center btn-group">
+            <button id="muteBtn" class="btn btn-primary">Mute</button>
+            <button id="cameraOff" class="btn btn-primary">Turn Off Camera</button>
+        </div>
+
+        <div class="text-center">
+            <select id="selectCam" class="form-select" aria-level="Default select example">
+                <option disabled selected>Select Camera</option>
+            </select>
+
+            <select id="selectMic" class="form-select" aria-level="Default select example">
+                <option disabled selected>Select Mic</option>
+            </select>
+        </div>
+    </div>
+</body>
+
+</html>
