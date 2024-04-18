@@ -58,12 +58,21 @@ cameraOff.addEventListener('click', () => {
     }
 })
 
-async function getMedia() {
+async function getMedia(cameraId) {
+    const initialConstraits = {
+        video: true,
+        audio: true
+    };
+
+    const preferredConstraits = {
+        audio: true,
+        video: {
+            deviceId: cameraId
+        }
+    };
+
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: true
-        });
+        const stream = await navigator.mediaDevices.getUserMedia(cameraId ? preferredConstraits : initialConstraits);
         mediaStream = stream;
         console.log(stream);
         displayMedia();
@@ -99,6 +108,13 @@ async function getAllCameras() {
 };
 
 getAllCameras();
+
+//select specific cameras
+selectCam.addEventListener('input', (e) => {
+    const cameraId = e.target.value;
+    console.log(cameraId);
+    getMedia(cameraId);
+});
 
 async function getAllMicrophone() {
     try {
